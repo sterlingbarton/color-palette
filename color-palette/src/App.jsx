@@ -6,7 +6,7 @@ export default function App() {
   console.log(generatePalette(SeedColors[4]))
   return (
     <>
-      <Palette SeedColors={SeedColors}/>
+      <Palette palette={generatePalette(SeedColors[4])}/>
     </>
   )
 }
