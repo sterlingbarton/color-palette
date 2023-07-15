@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "chroma-js": "^2.0.3",
     "react-copy-to-clipboard": "^5.1.0"
   }
 }
