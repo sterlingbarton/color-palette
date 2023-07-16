@@ -8,6 +8,8 @@
     "chroma-js": "^2.0.3",
     "rc-slider": "^10.2.1",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-router-dom": "^6.0.1"
+    "react-jss": "^10.10.0",
+    "react-router-dom": "^6.0.1",
+    "styled-components": "^5.3.11"
   }
 }
