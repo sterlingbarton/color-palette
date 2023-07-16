@@ -1,4 +1,5 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 import MiniPalette from './MiniPalette'
 import {createUseStyles} from 'react-jss'
 
@@ -36,9 +37,16 @@ const useStyles = createUseStyles({
 export default function PaletteList({palettes}) {
     const classes = useStyles()
 
+    const navigate = useNavigate()
+
+    function goToPalette(id) {
+        navigate(`/palette/${id}`)
+    }
+
     const paletteList = palettes.map(palette => {
-        return <MiniPalette key={palette.paletteName} palette={palette}/>
+        return <MiniPalette key={palette.paletteName} palette={palette} goToPalette={() => goToPalette(palette.id)}/>
     })
+
 
   return (
     <div className={classes.root}>

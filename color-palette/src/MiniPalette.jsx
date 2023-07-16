@@ -45,15 +45,16 @@ const useStyles = createUseStyles({
     }
 })
 
-export default function MiniPalette({palette}) {
+export default function MiniPalette({palette, goToPalette}) {
     const classes = useStyles()
 
     const miniColors = palette.colors.map((color) => {
         return <div className={classes.miniColor} style={{ backgroundColor: color.color }} key={color.name}/>
     })
 
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={goToPalette}>
         <div className={classes.colors}>
             {miniColors}
         </div>
