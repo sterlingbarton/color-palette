@@ -1,10 +1,10 @@
 import {useState} from 'react'
+import {Link} from 'react-router-dom'
 import Slider from 'rc-slider';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -44,7 +44,7 @@ export default function Navbar({level, changeLevel, format, setFormat, changeFor
   return (
     <header className='navbar'>
         <div className='logo'>
-            <a href='#'>reactcolorpicker</a>
+            <Link to='/'>reactcolorpicker</Link>
         </div>
         <div className='slider-container'>
             <span>Level: {level}</span>
@@ -53,7 +53,7 @@ export default function Navbar({level, changeLevel, format, setFormat, changeFor
             </div>
         </div>
         <div className='select-container'>
-            <FormControl fullwidth>
+            <FormControl fullwidth size="small">
                 <InputLabel id="demo-simple-select-label">Format</InputLabel>
                 <Select
                 labelId="select-label"
