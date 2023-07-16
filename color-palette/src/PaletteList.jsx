@@ -5,7 +5,7 @@ import {createUseStyles} from 'react-jss'
 const useStyles = createUseStyles({
     root: {
         backgroundColor: 'blue',
-        height: '100%',
+        height: '100vh',
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'center'
