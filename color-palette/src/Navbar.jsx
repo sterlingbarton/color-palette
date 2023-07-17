@@ -53,7 +53,7 @@ export default function Navbar({level, changeLevel, format, setFormat, changeFor
             </div>
         </div>
         <div className='select-container'>
-            <FormControl fullwidth size="small">
+            <FormControl fullwidth='true' size="small">
                 <InputLabel id="demo-simple-select-label">Format</InputLabel>
                 <Select
                 labelId="select-label"
