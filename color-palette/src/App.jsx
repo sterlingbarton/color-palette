@@ -17,12 +17,18 @@ export default function App() {
     return <Palette palette={palette} />;
   };
 
+  const SingleColorWrapper = () => {
+    const { paletteId, colorId } = useParams();
+    const palette = generatePalette(findPalette(paletteId));
+    return <SingleColorPalette palette={palette} colorId={colorId} />;
+};
+
   return (
     <div className='App'>
       <Routes>
         <Route index path='/' element={<PaletteList palettes={palettes}/>}/>
         <Route exact path='/palette/:id' element={<PaletteWrapper />}/>
-        <Route exact path='/palette/:paletteId/:colorId' element={<SingleColorPalette />}/>
+        <Route exact path='/palette/:paletteId/:colorId' element={<SingleColorWrapper />}/>
       </Routes>
     </div>
   )

@@ -9,7 +9,7 @@ export default function Palette({palette}) {
     const [format, setFormat] = useState('hex')
 
     const colorBoxes = palette.colors[level].map((color) => {
-        return <ColorBox key={color.id} background={color[format]} name={color.name} colorId={color.id} paletteId={palette.id}/>
+        return <ColorBox key={color.id} background={color[format]} name={color.name} colorId={color.id} paletteId={palette.id} showLink={true}/>
     })
 
     function changeFormat(value){
