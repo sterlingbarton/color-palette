@@ -1,10 +1,13 @@
 import {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 import Navbar from './Navbar'
 import ColorBox from './ColorBox'
 import PaletteFooter from './PaletteFooter'
 
 export default function SingleColorPalette({palette, colorId}) {
     const [format, setFormat] = useState('hex')
+
+    const navigate = useNavigate();
 
     function gatherShades(palette, colorToFilterBy){
         let shades = []
@@ -28,10 +31,15 @@ export default function SingleColorPalette({palette, colorId}) {
     }
 
   return (  
-      <div className='palette'>
+      <div className='single-color-palette palette'>
         <Navbar changeFormat={changeFormat} showSlider={false}/>
         <div className='palette-colors'>
             {colorBoxes}
+            <div className='go-back color-box'>
+                <Link to={navigate(-1)} className="back-button">
+                    Go Back
+                </Link>
+            </div>
         </div>
         <PaletteFooter palette={palette}/>
       </div>
