@@ -1,7 +1,10 @@
 import {useState} from 'react'
+import Navbar from './Navbar'
 import ColorBox from './ColorBox'
+import PaletteFooter from './PaletteFooter'
 
 export default function SingleColorPalette({palette, colorId}) {
+    const [format, setFormat] = useState('hex')
 
     function gatherShades(palette, colorToFilterBy){
         let shades = []
@@ -17,14 +20,20 @@ export default function SingleColorPalette({palette, colorId}) {
     let _shades = gatherShades(palette, colorId)
 
     const colorBoxes = _shades.map((color) => {
-        return <ColorBox key={color.name} name={color.name} background={color.hex} showLink={false}/>
+        return <ColorBox key={color.name} name={color.name} background={color[format]} showLink={false}/>
     })
+
+    function changeFormat(value){
+        setFormat(value)
+    }
+
   return (  
       <div className='palette'>
-        <h1>Single Color Palette</h1>
+        <Navbar changeFormat={changeFormat} showSlider={false}/>
         <div className='palette-colors'>
             {colorBoxes}
         </div>
+        <PaletteFooter palette={palette}/>
       </div>
     )
 }

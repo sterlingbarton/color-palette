@@ -12,10 +12,9 @@ import 'rc-slider/assets/index.css';
 import './Navbar.css'
 
 
-export default function Navbar({level, changeLevel, format, setFormat, changeFormat}) {
+export default function Navbar({level, changeLevel, format, setFormat, changeFormat, showSlider}) {
 
     const [open, setOpen] = useState(false);
-
 
     const handleClose = (reason) => {
         if (reason === 'clickaway') {
@@ -36,7 +35,6 @@ export default function Navbar({level, changeLevel, format, setFormat, changeFor
       );
 
     function handleChange(e){
-        setFormat(e.target.value)
         changeFormat(e.target.value)
         setOpen(true);
     }
@@ -46,12 +44,14 @@ export default function Navbar({level, changeLevel, format, setFormat, changeFor
         <div className='logo'>
             <Link to='/'>reactcolorpicker</Link>
         </div>
-        <div className='slider-container'>
-            <span>Level: {level}</span>
-            <div className='slider'>
-                <Slider min={100} max={900} step={100} value={level} onChange={changeLevel}/>
+        {showSlider && (
+             <div className='slider-container'>
+                <span>Level: {level}</span>
+                <div className='slider'>
+                    <Slider min={100} max={900} step={100} value={level} onChange={changeLevel}/>
+                </div>
             </div>
-        </div>
+        )}
         <div className='select-container'>
             <FormControl fullwidth='true' size="small">
                 <InputLabel id="demo-simple-select-label">Format</InputLabel>
