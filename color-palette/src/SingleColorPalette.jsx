@@ -36,7 +36,7 @@ export default function SingleColorPalette({palette, colorId}) {
         <div className='palette-colors'>
             {colorBoxes}
             <div className='go-back color-box'>
-                <Link to={navigate(-1)} className="back-button">
+                <Link to={() => navigate(-1)} className="back-button">
                     Go Back
                 </Link>
             </div>
