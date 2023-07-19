@@ -1,5 +1,5 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import MiniPalette from './MiniPalette'
 import {createUseStyles} from 'react-jss'
 
@@ -22,7 +22,11 @@ const useStyles = createUseStyles({
         display: 'flex',
         width: '100%',
         justifyContent: 'space-between',
-        color: 'white'
+        alignItems: 'center',
+        color: 'white',
+        '& a':{
+            color: 'white'
+        }
     },
     palettes: {
         boxSizing: 'border-box',
@@ -53,6 +57,7 @@ export default function PaletteList({palettes}) {
         <div className={classes.container}>
             <nav className={classes.nav}>
                 <h1>React Colors</h1>
+                <Link to='/palette/new'>Create Palette</Link>
             </nav>
             <div className={classes.palettes}>
                 {paletteList}

@@ -32,13 +32,13 @@ export default function SingleColorPalette({palette, colorId}) {
 
   return (  
       <div className='single-color-palette palette'>
-        <Navbar changeFormat={changeFormat} showSlider={false}/>
+        <Navbar changeFormat={changeFormat} format={format} showSlider={false}/>
         <div className='palette-colors'>
             {colorBoxes}
             <div className='go-back color-box'>
-                <Link to={() => navigate(-1)} className="back-button">
+                <button onClick={() => navigate(-1)} className="back-button">
                     Go Back
-                </Link>
+                </button>
             </div>
         </div>
         <PaletteFooter palette={palette}/>

@@ -8,8 +8,8 @@ const useStyles = createUseStyles({
         borderRadius: '5px',
         padding: '.5rem',
         position: 'relative',
-        overflow: 'hidden', 
-        '&:hover': {
+        overflow: 'hidden',
+        '&:hover':{
             cursor: 'pointer',
         }
     },
@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
         height: '150px',
         width: '100%',
         borderRadius: '5px',
-        overflow: 'hidden'
+        overflow: 'hidden',
     },
     title: {
         display: 'flex',
@@ -29,11 +29,11 @@ const useStyles = createUseStyles({
         paddingTop: '.5rem',
         paddingBottom: '1.5rem',
         fontSize: '1rem',
-        position: 'relative'
+        position: 'relative',
     },
     emoji: {
         marginLeft: '.5rem',
-        fontSize: '1.5rem'
+        fontSize: '1.5rem',
     },
     miniColor: {
         height: '25%',
@@ -46,6 +46,7 @@ const useStyles = createUseStyles({
 })
 
 export default function MiniPalette({palette, goToPalette}) {
+
     const classes = useStyles()
 
     const miniColors = palette.colors.map((color) => {
