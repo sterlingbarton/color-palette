@@ -13,6 +13,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import {ChromePicker} from 'react-color'
+import DraggableColorBox from './DraggableColorBox';
 
 
 const drawerWidth = 400;
@@ -87,7 +88,10 @@ export default function NewPaletteForm() {
     }
 
     return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ 
+        display: 'flex',
+        mt: '4rem'
+        }}>
         <CssBaseline />
         <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -132,10 +136,8 @@ export default function NewPaletteForm() {
         <ChromePicker color={currentColor} onChangeComplete={updateCurrentColor}/>
         <Button variant='contained' color='primary' sx={{backgroundColor: currentColor}} onClick={addNewColor}>Add Color</Button>
         </Drawer>
-        <Main open={open}>
-            <ul>
-                {colors.map(color => <li key={color} style={{backgroundColor: color}}>{color}</li>)}
-            </ul>
+        <Main open={open} sx={{height: 'calc(100vh - 4rem)'}}>
+            {colors.map(color => <DraggableColorBox key={color} color={color}/>)}
         <DrawerHeader />
         </Main>
     </Box>
