@@ -32,7 +32,7 @@ export default function App() {
     <div className='App'>
       <Routes>
         <Route index path='/' element={<PaletteList palettes={palettes}/>}/>
-        <Route exact path='/palette/new' element={<NewPaletteForm savePalette={savePalette}/>}/>
+        <Route exact path='/palette/new' element={<NewPaletteForm savePalette={savePalette} palettes={palettes}/>}/>
         <Route exact path='/palette/:id' element={<PaletteWrapper />}/>
         <Route exact path='/palette/:paletteId/:colorId' element={<SingleColorWrapper />}/>
       </Routes>
