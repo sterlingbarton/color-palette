@@ -129,6 +129,10 @@ export default function NewPaletteForm({savePalette, palettes}) {
         navigate("/");
     }
 
+    function handleRemoveColor(colorName){
+        setColors(colors.filter((color) => color.name !== colorName))
+    }
+
     return (
     <Box sx={{ 
         display: 'flex',
@@ -198,7 +202,12 @@ export default function NewPaletteForm({savePalette, palettes}) {
         </ValidatorForm>
         </Drawer>
         <Main open={open} sx={{height: 'calc(100vh - 4rem)'}}>
-            {colors.map(color => <DraggableColorBox key={color.name} color={color.color} name={color.name}/>)}
+            {colors.map(color => 
+            <DraggableColorBox 
+                key={color.name} 
+                color={color.color} 
+                name={color.name} 
+                handleRemoveColor={() => handleRemoveColor(color.name)}/>)}
         <DrawerHeader />
         </Main>
     </Box>
