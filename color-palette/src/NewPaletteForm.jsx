@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {ChromePicker} from 'react-color'
-import DraggableColorBox from './DraggableColorBox';
+import DraggableColorList from "./DraggableColorList";
 
 
 const drawerWidth = 400;
@@ -201,14 +201,13 @@ export default function NewPaletteForm({savePalette, palettes}) {
             <Button variant='contained' color='primary' type='submit' sx={{backgroundColor: currentColor}}>Add Color</Button>
         </ValidatorForm>
         </Drawer>
-        <Main open={open} sx={{height: 'calc(100vh - 4rem)'}}>
-            {colors.map(color => 
-            <DraggableColorBox 
-                key={color.name} 
-                color={color.color} 
-                name={color.name} 
-                handleRemoveColor={() => handleRemoveColor(color.name)}/>)}
+        <Main open={open} sx={{height: 'calc(100vh - 64px)'}}>
         <DrawerHeader />
+        <DraggableColorList
+                    colors={colors}
+                    setColors={setColors}
+                    handleRemoveColor={handleRemoveColor}
+                />
         </Main>
     </Box>
     ); 
