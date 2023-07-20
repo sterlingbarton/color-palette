@@ -3,16 +3,15 @@ import DraggableColorBox from "./DraggableColorBox";
 import { ReactSortable } from "react-sortablejs";
 
 export default function DraggableColorList({colors, setColors, handleRemoveColor}) {
-  return (
+    return (
     <ReactSortable
             // tag="div"
             list={colors}
             setList={setColors}
             style={{ height: "100%" }}
         >
-            {colors.map((color, i) => (
+            {colors.map((color) => (
                 <DraggableColorBox
-                    index={i}
                     key={color.name}
                     color={color.color}
                     name={color.name}
