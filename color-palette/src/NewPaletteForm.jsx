@@ -116,7 +116,7 @@ export default function NewPaletteForm({savePalette, palettes}) {
                 anchor="left"
                 open={open}
                 >
-                <DrawerHeader>
+                <DrawerHeader sx={{width: '100%'}}>
                     <IconButton onClick={handleDrawerClose}>
                     <ChevronLeftIcon />
                     </IconButton>
@@ -135,7 +135,9 @@ export default function NewPaletteForm({savePalette, palettes}) {
                 <ColorPickerForm paletteIsFull={paletteIsFull} colors={colors} setColors={setColors}/>
                 </div>
             </Drawer>
-            <Main open={open} sx={{height: 'calc(100vh - 64px)'}}>
+            <Main open={open} sx={{
+                height: 'calc(100vh - 64px)',
+                padding: '0'}}>
             <DrawerHeader />
             <DraggableColorList
                         colors={colors}
