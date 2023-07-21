@@ -11,11 +11,13 @@ export default function App() {
   const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"))
   const [palettes, setPalettes] = React.useState(savedPalettes || SeedColors)
 
-  const findPalette = id => palettes.find(palette => palette.id === id);
-
   React.useEffect(() => {
     window.localStorage.setItem('palettes', JSON.stringify(palettes))
   }, [palettes])
+
+  const findPalette = id => palettes.find(palette => palette.id === id);
+
+  const deletePalette = id => setPalettes(palettes.filter((palette) => palette.id !== id));
 
   const PaletteWrapper = () => {
     const { id } = useParams();
@@ -36,7 +38,7 @@ export default function App() {
   return (
     <div className='App'>
       <Routes>
-        <Route index path='/' element={<PaletteList palettes={palettes}/>}/>
+        <Route index path='/' element={<PaletteList palettes={palettes} deletePalette={deletePalette}/>}/>
         <Route exact path='/palette/new' element={<NewPaletteForm savePalette={savePalette} palettes={palettes}/>}/>
         <Route exact path='/palette/:id' element={<PaletteWrapper />}/>
         <Route exact path='/palette/:paletteId/:colorId' element={<SingleColorWrapper />}/>

@@ -38,7 +38,7 @@ const useStyles = createUseStyles({
 
 })
 
-export default function PaletteList({palettes}) {
+export default function PaletteList({palettes, deletePalette}) {
     const classes = useStyles()
 
     const navigate = useNavigate()
@@ -48,7 +48,13 @@ export default function PaletteList({palettes}) {
     }
 
     const paletteList = palettes.map(palette => {
-        return <MiniPalette key={palette.paletteName} palette={palette} goToPalette={() => goToPalette(palette.id)}/>
+        return <MiniPalette 
+                key={palette.paletteName}
+                id={palette.id} 
+                palette={palette} 
+                deletePalette={deletePalette} 
+                goToPalette={() => goToPalette(palette.id)}
+                />
     })
 
 
