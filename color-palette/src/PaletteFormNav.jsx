@@ -9,8 +9,8 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import { drawerWidth } from './NewPaletteForm';
+import PaletteMetaForm from './PaletteMetaForm';
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
@@ -32,17 +32,6 @@ const AppBar = styled(MuiAppBar, {
 export default function PaletteFormNav({open, palettes, handleDrawerOpen, handleSavePalette, newPaletteName, setNewPaletteName}) {
 
     const navigate = useNavigate();
-
-
-    React.useEffect(() => {
-        ValidatorForm.addValidationRule("isPaletteNameUnique", (value) => {
-            return palettes.every(
-                ({ paletteName }) =>
-                    paletteName.toLowerCase() !== value.toLowerCase()
-            );
-        });
-    });
-
 
   return (
     <Box sx={{ 
@@ -74,16 +63,11 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
             </Typography>
         </Toolbar>
         <div className='navBtns'>
-                <ValidatorForm onSubmit={handleSavePalette}>
-                    <TextValidator 
-                        label='New Palette Name' 
-                        value={newPaletteName} 
-                        onChange={(e) => setNewPaletteName(e.target.value)}
-                        validators={["required", "isPaletteNameUnique"]}
-                        errorMessages={["Enter a Palette Name", "Name is already used"]}
-                        />
-                    <Button type='submit' variant='contained' color='primary'>Save Palette</Button>
-                </ValidatorForm>
+            <PaletteMetaForm 
+                palettes={palettes} 
+                newPaletteName={newPaletteName}
+                setNewPaletteName={setNewPaletteName}
+                handleSavePalette={handleSavePalette}/>
                 <Button variant='contained' onClick={() => navigate(-1)}>
                     Go Back
                 </Button>
