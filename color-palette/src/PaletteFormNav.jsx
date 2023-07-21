@@ -87,7 +87,7 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
                 <Button variant='contained' onClick={() => navigate(-1)}>
                     Go Back
                 </Button>
-            </div>
+        </div>
         </AppBar>
     </Box>
   )

@@ -12,7 +12,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import DraggableColorList from "./DraggableColorList";
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
-
+import './NewPaletteForm.css'
 
 export const drawerWidth = 400;
 
@@ -111,6 +111,8 @@ export default function NewPaletteForm({savePalette, palettes}) {
                     '& .MuiDrawer-paper': {
                     width: drawerWidth,
                     boxSizing: 'border-box',
+                    display: 'flex',
+                    alignItems: 'center',
                     },
                 }}
                 variant="persistent"
@@ -123,16 +125,18 @@ export default function NewPaletteForm({savePalette, palettes}) {
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-                <Typography variant='h4'>Design Your Palette</Typography>
-                <ButtonGroup>
-                    <Button variant='contained' color='secondary' onClick={clearColors}>Clear Palette</Button>
-                    <Button 
-                        variant='contained' 
-                        color='primary'
-                        disabled={paletteIsFull}  
-                        onClick={addRandomColor}>Random Color</Button>
-                </ButtonGroup>
-               <ColorPickerForm paletteIsFull={paletteIsFull} colors={colors} setColors={setColors}/>
+                <div className='container'>
+                    <Typography variant='h4' gutterBottom>Design Your Palette</Typography>
+                    <ButtonGroup>
+                        <Button variant='contained' color='secondary' onClick={clearColors}>Clear Palette</Button>
+                        <Button 
+                            variant='contained' 
+                            color='primary'
+                            disabled={paletteIsFull}  
+                            onClick={addRandomColor}>Random Color</Button>
+                    </ButtonGroup>
+                <ColorPickerForm paletteIsFull={paletteIsFull} colors={colors} setColors={setColors}/>
+                </div>
             </Drawer>
             <Main open={open} sx={{height: 'calc(100vh - 64px)'}}>
             <DrawerHeader />

@@ -1,0 +1,17 @@
+.picker{
+    width: 300px !important;
+    margin-top: 2rem;
+}
+
+.color-name-input{
+    width: 100%;
+    height: 70px;
+
+}
+
+.add-color{
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+}
