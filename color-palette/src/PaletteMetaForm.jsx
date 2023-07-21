@@ -7,6 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
 
 
 export default function PaletteMetaForm({openDialog, setOpenDialog, palettes, newPaletteName, setNewPaletteName, handleSavePalette}) {
@@ -33,15 +35,16 @@ export default function PaletteMetaForm({openDialog, setOpenDialog, palettes, ne
             <DialogContentText>
                 Please enter a unique name for your palette
             </DialogContentText>
-                    <TextValidator 
-                        label='New Palette Name' 
-                        value={newPaletteName} 
-                        fullWidth
-                        margin='normal'
-                        onChange={(e) => setNewPaletteName(e.target.value)}
-                        validators={["required", "isPaletteNameUnique"]}
-                        errorMessages={["Enter a Palette Name", "Name is already used"]}
-                        />
+            <TextValidator 
+                label='New Palette Name' 
+                value={newPaletteName} 
+                fullWidth
+                margin='normal'
+                onChange={(e) => setNewPaletteName(e.target.value)}
+                validators={["required", "isPaletteNameUnique"]}
+                errorMessages={["Enter a Palette Name", "Name is already used"]}
+                />
+                <Picker data={data} theme='light'/>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>

@@ -79,7 +79,7 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
             </Button>
             <PaletteMetaForm 
                 openDialog={openDialog}
-                setOpen={setOpenDialog}
+                setOpenDialog={setOpenDialog}
                 palettes={palettes} 
                 newPaletteName={newPaletteName}
                 setNewPaletteName={setNewPaletteName}
