@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import Navbar from './Navbar'
 import ColorBox from './ColorBox'
 import PaletteFooter from './PaletteFooter'
+import './ColorBox.css'
 
 export default function SingleColorPalette({palette, colorId}) {
     const [format, setFormat] = useState('hex')
