@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import { drawerWidth } from './NewPaletteForm';
 import PaletteMetaForm from './PaletteMetaForm';
+import './PaletteFormNav.css'
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
@@ -31,7 +32,13 @@ const AppBar = styled(MuiAppBar, {
 
 export default function PaletteFormNav({open, palettes, handleDrawerOpen, handleSavePalette, newPaletteName, setNewPaletteName}) {
 
+    const [openDialog, setOpenDialog] = React.useState(false);
+
     const navigate = useNavigate();
+
+    const handleClickOpen = () => {
+        setOpenDialog(true);
+      };
 
   return (
     <Box sx={{ 
@@ -46,6 +53,7 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
             sx={{        
                 flexDirection: "row",
                 justifyContent: "space-between",
+                alignItems: 'center',
                 height: "64px"}}
             >
         <Toolbar>
@@ -63,14 +71,19 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
             </Typography>
         </Toolbar>
         <div className='navBtns'>
+            <Button className='button' variant='contained' color='secondary' onClick={() => navigate(-1)}>
+                Go Back
+            </Button>
+            <Button className='button' variant="contained" color='primary' onClick={handleClickOpen}>
+                Save Palette
+            </Button>
             <PaletteMetaForm 
+                openDialog={openDialog}
+                setOpen={setOpenDialog}
                 palettes={palettes} 
                 newPaletteName={newPaletteName}
                 setNewPaletteName={setNewPaletteName}
                 handleSavePalette={handleSavePalette}/>
-                <Button variant='contained' onClick={() => navigate(-1)}>
-                    Go Back
-                </Button>
         </div>
         </AppBar>
     </Box>
