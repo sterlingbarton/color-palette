@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 import {ChromePicker} from 'react-color'
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 
 export default function ColorPickerForm({paletteIsFull, colors, setColors}) {

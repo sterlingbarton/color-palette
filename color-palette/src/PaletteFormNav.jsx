@@ -47,10 +47,18 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
   return (
     <Box sx={{ 
         display: 'flex',
-        mt: '4rem'
+        mt: '4rem',
         }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open} color='default'>
+        <AppBar 
+            position="fixed" 
+            open={open} 
+            color='default' 
+            sx={{        
+                flexDirection: "row",
+                justifyContent: "space-between",
+                height: "64px"}}
+            >
         <Toolbar>
             <IconButton
             color="inherit"
@@ -62,22 +70,24 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
             <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+                Create A Palette
             </Typography>
-            <ValidatorForm onSubmit={handleSavePalette}>
-                <TextValidator 
-                    label='New Palette Name' 
-                    value={newPaletteName} 
-                    onChange={(e) => setNewPaletteName(e.target.value)}
-                    validators={["required", "isPaletteNameUnique"]}
-                    errorMessages={["Enter a Palette Name", "Name is already used"]}
-                    />
-                <Button type='submit' variant='contained' color='primary'>Save Palette</Button>
+        </Toolbar>
+        <div className='navBtns'>
+                <ValidatorForm onSubmit={handleSavePalette}>
+                    <TextValidator 
+                        label='New Palette Name' 
+                        value={newPaletteName} 
+                        onChange={(e) => setNewPaletteName(e.target.value)}
+                        validators={["required", "isPaletteNameUnique"]}
+                        errorMessages={["Enter a Palette Name", "Name is already used"]}
+                        />
+                    <Button type='submit' variant='contained' color='primary'>Save Palette</Button>
+                </ValidatorForm>
                 <Button variant='contained' onClick={() => navigate(-1)}>
                     Go Back
                 </Button>
-            </ValidatorForm>
-        </Toolbar>
+            </div>
         </AppBar>
     </Box>
   )
