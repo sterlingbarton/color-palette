@@ -65,13 +65,10 @@ export default function NewPaletteForm({savePalette, palettes}) {
     setOpen(false);
     };
 
-    function handleSavePalette(e){
-        e.preventDefault()
-        const newPalette = {
-            paletteName: newPaletteName,
-            id: newPaletteName.toLowerCase().replace(/ /g, "-"),
-            colors: colors,
-        };
+    function handleSavePalette(newPalette){
+        // e.preventDefault()
+        newPalette.id = newPaletteName.toLowerCase().replace(/ /g, "-")
+        newPalette.colors = colors
         savePalette(newPalette);
         navigate("/");
     }

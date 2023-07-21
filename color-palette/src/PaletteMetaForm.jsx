@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -11,7 +10,17 @@ import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 
 
-export default function PaletteMetaForm({openDialog, setOpenDialog, palettes, newPaletteName, setNewPaletteName, handleSavePalette}) {
+export default function PaletteMetaForm({ 
+    palettes, 
+    newPaletteName, 
+    setNewPaletteName, 
+    handleSavePalette,
+    hideForm
+}) {
+
+    // const [open, setOpen] = React.useState(true);
+    const [type, setType] = React.useState('form')
+
 
     React.useEffect(() => {
         ValidatorForm.addValidationRule("isPaletteNameUnique", (value) => {
@@ -22,37 +31,49 @@ export default function PaletteMetaForm({openDialog, setOpenDialog, palettes, ne
         });
     });
 
-  
-    const handleClose = () => {
-      setOpenDialog(false);
+    function showEmojiPicker() {
+        setType("emoji");
     };
+
+    function handleEmoji(emoji){
+        const newPalette = {
+            paletteName: newPaletteName,
+            emoji: emoji.native
+        }
+        handleSavePalette(newPalette)
+    }
   
     return (
-        <Dialog open={openDialog} onClose={handleClose}>
-          <DialogTitle>Choose a palette name</DialogTitle>
-          <ValidatorForm onSubmit={handleSavePalette}>
-          <DialogContent>
-            <DialogContentText>
-                Please enter a unique name for your palette
-            </DialogContentText>
-            <TextValidator 
-                label='New Palette Name' 
-                value={newPaletteName} 
-                fullWidth
-                margin='normal'
-                onChange={(e) => setNewPaletteName(e.target.value)}
-                validators={["required", "isPaletteNameUnique"]}
-                errorMessages={["Enter a Palette Name", "Name is already used"]}
-                />
-                <Picker data={data} theme='light'/>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button type='submit' variant='contained' color='primary'>Save Palette</Button>
-          </DialogActions>
-          </ValidatorForm>
-
-        </Dialog>
+        <div>
+            <Dialog open={type === 'emoji'} onClose={hideForm}>
+                <DialogTitle>Choose a Palette Emoji</DialogTitle>
+                <Picker data={data} theme='light' title='Choose a Palette Emoji' onEmojiSelect={handleEmoji}/>
+            </Dialog>
+            <Dialog open={type === 'form'} onClose={hideForm}>
+                <DialogTitle>Choose a palette name</DialogTitle>
+                <ValidatorForm onSubmit={showEmojiPicker}>
+                <DialogContent>
+                    <DialogContentText>
+                        Please enter a unique name for your palette
+                    </DialogContentText>
+                    <TextValidator 
+                        label='New Palette Name' 
+                        value={newPaletteName} 
+                        fullWidth
+                        margin='normal'
+                        onChange={(e) => setNewPaletteName(e.target.value)}
+                        validators={["required", "isPaletteNameUnique"]}
+                        errorMessages={["Enter a Palette Name", "Name is already used"]}
+                        />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={hideForm}>Cancel</Button>
+                    <Button type='submit' variant='contained' color='primary'>Save Palette</Button>
+                </DialogActions>
+                </ValidatorForm>
+            </Dialog>
+        </div>
+        
     );
 }
 

@@ -31,15 +31,17 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 export default function PaletteFormNav({open, palettes, handleDrawerOpen, handleSavePalette, newPaletteName, setNewPaletteName}) {
-
-    const [openDialog, setOpenDialog] = React.useState(false);
-
     const navigate = useNavigate();
 
-    const handleClickOpen = () => {
-        setOpenDialog(true);
-      };
+    const [formShowing, setFormShowing] = React.useState(false);
 
+    function showForm(){
+        setFormShowing(true)
+    }
+
+    function hideForm(){
+        setFormShowing(false)
+    }
   return (
     <Box sx={{ 
         display: 'flex',
@@ -74,16 +76,17 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
             <Button className='button' variant='contained' color='secondary' onClick={() => navigate(-1)}>
                 Go Back
             </Button>
-            <Button className='button' variant="contained" color='primary' onClick={handleClickOpen}>
+            <Button className='button' variant="contained" color='primary' onClick={showForm}>
                 Save Palette
             </Button>
-            <PaletteMetaForm 
-                openDialog={openDialog}
-                setOpenDialog={setOpenDialog}
-                palettes={palettes} 
-                newPaletteName={newPaletteName}
-                setNewPaletteName={setNewPaletteName}
-                handleSavePalette={handleSavePalette}/>
+            {formShowing && (
+                <PaletteMetaForm 
+                    hideForm={hideForm}
+                    palettes={palettes} 
+                    newPaletteName={newPaletteName}
+                    setNewPaletteName={setNewPaletteName}
+                    handleSavePalette={handleSavePalette}/>
+            )}
         </div>
         </AppBar>
     </Box>
