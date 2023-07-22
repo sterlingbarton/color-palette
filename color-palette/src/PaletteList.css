@@ -6,6 +6,10 @@
     justify-content: center;
 }
 
+.palette-list-title{
+    font-size: 2rem;
+}
+
 .palette-list-container {
     width: 50%;
     display: flex;
@@ -31,6 +35,15 @@
     row-gap: 2.5rem;
     column-gap: 2.5rem;
 } 
+
+.fade-exit{
+    opacity: 1;
+}
+
+.fade-exit-active{
+    opacity: 0;
+    transition: opacity 500ms ease-out;
+}
 
 @media (max-width: 1550px){
     .palette-list-container{
