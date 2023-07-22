@@ -1,45 +1,9 @@
 import React from 'react'
 import {useNavigate, Link} from 'react-router-dom'
 import MiniPalette from './MiniPalette'
-import {createUseStyles} from 'react-jss'
-
-const useStyles = createUseStyles({
-    root: {
-        backgroundColor: 'blue',
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'center'
-    },
-    container: {
-        width: '50%',
-        display: 'flex',
-        alignItems: 'flex-start',
-        flexDirection: 'column',
-        flexWrap: 'wrap'
-    },
-    nav: {
-        display: 'flex',
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        color: 'white',
-        '& a':{
-            color: 'white'
-        }
-    },
-    palettes: {
-        boxSizing: 'border-box',
-        width: '100%',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 30%)',
-        gridGap: '5%'
-    },
-
-})
+import './PaletteList.css'
 
 export default function PaletteList({palettes, deletePalette}) {
-    const classes = useStyles()
 
     const navigate = useNavigate()
 
@@ -59,13 +23,13 @@ export default function PaletteList({palettes, deletePalette}) {
 
 
   return (
-    <div className={classes.root}>
-        <div className={classes.container}>
-            <nav className={classes.nav}>
+    <div className='palette-list-root'>
+        <div className='palette-list-container'>
+            <nav className='palette-list-nav'>
                 <h1>React Colors</h1>
                 <Link to='/palette/new'>Create Palette</Link>
             </nav>
-            <div className={classes.palettes}>
+            <div className='palette-list-palettes'>
                 {paletteList}
             </div>
         </div>

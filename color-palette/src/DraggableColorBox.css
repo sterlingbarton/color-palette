@@ -1,4 +1,4 @@
-.root{
+.color-box-root{
     width: 20%;
     height: 25%;
     margin: 0 auto;
@@ -9,7 +9,7 @@
     border: none;
 }
 
-.root:hover svg{
+.color-box-root:hover svg{
     color: white;
     transform: scale(1.5);
     transition: all 0.4s ease-in-out;
@@ -30,14 +30,14 @@
 }
 
 @media (max-width: 1200px){
-    .root{
+    .color-box-root{
         width: 25%;
         height: 20%;
     }
 }
 
 @media (max-width: 992px){
-    .root{
+    .color-box-root{
         width: 50%;
         height: 9%;
     }

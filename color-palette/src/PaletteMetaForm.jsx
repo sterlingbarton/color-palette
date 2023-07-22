@@ -18,7 +18,6 @@ export default function PaletteMetaForm({
     hideForm
 }) {
 
-    // const [open, setOpen] = React.useState(true);
     const [type, setType] = React.useState('form')
 
 
