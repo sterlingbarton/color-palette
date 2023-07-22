@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {PureComponent} from 'react'
 import './MiniPalette.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function MiniPalette({palette, goToPalette, deletePalette, id, openDialog}) {
+function MiniPalette({
+    palette, 
+    goToPalette, 
+    id, 
+    openDialog
+}) {
 
     const miniColors = palette.colors.map((color) => {
         return <div className='mini-palette-miniColor' style={{ backgroundColor: color.color }} key={color.name}/>
@@ -11,12 +16,11 @@ export default function MiniPalette({palette, goToPalette, deletePalette, id, op
     const handleDeletePalette = (e) => {
         e.stopPropagation()
         openDialog(id)
-        // deletePalette(id)
     }
-
+    console.log(palette.paletteName)
 
   return (
-    <div className='mini-palette-root' onClick={goToPalette}>
+    <div className='mini-palette-root' onClick={() => goToPalette(id)}>
         <DeleteIcon 
             className='mini-palette-delete-icon' 
             style={{ transition: 'all 0.3s ease-in-out' }} 
@@ -28,4 +32,7 @@ export default function MiniPalette({palette, goToPalette, deletePalette, id, op
     </div>
   )
 }
+
+export default React.memo(MiniPalette, () => true);
+
 

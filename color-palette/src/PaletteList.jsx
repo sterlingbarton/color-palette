@@ -59,9 +59,8 @@ export default function PaletteList({palettes, deletePalette}) {
                                     key={palette.paletteName}
                                     id={palette.id} 
                                     palette={palette} 
-                                    deletePalette={deletePalette} 
                                     openDialog={openDialog}
-                                    goToPalette={() => goToPalette(palette.id)}
+                                    goToPalette={goToPalette}
                                 />
                             </CSSTransition>
                 })}
