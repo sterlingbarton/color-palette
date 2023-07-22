@@ -69,7 +69,7 @@ export default function PaletteFormNav({open, palettes, handleDrawerOpen, handle
             <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-                Create A Palette
+                Create Palette
             </Typography>
         </Toolbar>
         <div className='navBtns'>

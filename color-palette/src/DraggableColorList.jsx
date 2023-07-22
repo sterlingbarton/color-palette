@@ -8,7 +8,11 @@ export default function DraggableColorList({colors, setColors, handleRemoveColor
             // tag="div"
             list={colors}
             setList={setColors}
-            style={{ height: "100%" }}
+            style={{ 
+                height: "100%",
+                marginLeft: '400px',
+                marginTop: '-58px'
+            }}
         >
         {colors.map((color) => (
             <DraggableColorBox

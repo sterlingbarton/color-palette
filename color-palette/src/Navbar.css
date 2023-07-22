@@ -55,3 +55,15 @@
     margin-left: auto;
     margin-right: 1rem;
 }
+
+@media (max-width: 992px){
+    .slider{
+        width: 150px;
+    }
+}
+
+@media (max-width: 576px){
+    .logo{
+        display: none;
+    }
+}
