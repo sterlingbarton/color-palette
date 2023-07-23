@@ -1,13 +1,13 @@
-import {useState} from 'react'
+import React from 'react'
 import ColorBox from "./ColorBox"
 import Navbar from './Navbar'
 import PaletteFooter from './PaletteFooter'
-import './Palette.css'
+import './styles/Palette.css'
 
 
 export default function Palette({palette}) {
-    const [level, setLevel] = useState(500)
-    const [format, setFormat] = useState('hex')
+    const [level, setLevel] = React.useState(500)
+    const [format, setFormat] = React.useState('hex')
 
     const colorBoxes = palette.colors[level].map((color) => {
         return <ColorBox key={color.id} background={color[format]} name={color.name} colorId={color.id} paletteId={palette.id} showLink={true}/>

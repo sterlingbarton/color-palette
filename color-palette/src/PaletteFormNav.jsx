@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import { drawerWidth } from './NewPaletteForm';
 import PaletteMetaForm from './PaletteMetaForm';
-import './PaletteFormNav.css'
+import './styles/PaletteFormNav.css'
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',

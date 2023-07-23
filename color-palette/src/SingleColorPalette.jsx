@@ -1,12 +1,12 @@
-import {useState} from 'react'
+import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import Navbar from './Navbar'
 import ColorBox from './ColorBox'
 import PaletteFooter from './PaletteFooter'
-import './ColorBox.css'
+import './styles/ColorBox.css'
 
 export default function SingleColorPalette({palette, colorId}) {
-    const [format, setFormat] = useState('hex')
+    const [format, setFormat] = React.useState('hex')
 
     const navigate = useNavigate();
 

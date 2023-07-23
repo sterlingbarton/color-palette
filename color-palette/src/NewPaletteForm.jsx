@@ -12,8 +12,8 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import DraggableColorList from "./DraggableColorList";
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
-import SeedColors from './SeedColors';
-import './NewPaletteForm.css'
+import SeedColors from './utils/SeedColors';
+import './styles/NewPaletteForm.css'
 
 export const drawerWidth = 400;
 

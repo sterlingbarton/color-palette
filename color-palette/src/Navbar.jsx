@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import Slider from 'rc-slider';
 import Select from '@mui/material/Select';
@@ -9,12 +9,12 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import 'rc-slider/assets/index.css';
-import './Navbar.css'
+import './styles/Navbar.css'
 
 
 export default function Navbar({level, changeLevel, format, changeFormat, showSlider}) {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = React.useState(false);
 
     const handleClose = (reason) => {
         if (reason === 'clickaway') {

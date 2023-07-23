@@ -14,7 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import blue from "@mui/material/colors/blue";
 import red from "@mui/material/colors/red";
 import MiniPalette from './MiniPalette'
-import './PaletteList.css'
+import './styles/PaletteList.css'
 
 export default function PaletteList({palettes, deletePalette}) {
     const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);

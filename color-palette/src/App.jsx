@@ -6,9 +6,9 @@ import PaletteList from "./PaletteList";
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
 import Page from './Page';
-import SeedColors from "./SeedColors"
-import { generatePalette } from "./colorHelpers"
-import './App.css'
+import SeedColors from "./utils/SeedColors"
+import { generatePalette } from "./utils/colorHelpers"
+import './styles/App.css'
 
 
 export default function App() {

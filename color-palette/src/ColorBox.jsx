@@ -1,12 +1,12 @@
-import {useState} from 'react'
+import React from 'react'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { Link } from "react-router-dom";
 import chroma from 'chroma-js'
-import './ColorBox.css'
+import './styles/ColorBox.css'
 
 
 export default function ColorBox({background, name, colorId, paletteId, showLink}) {
-    const [copied, setCopied] = useState(false)
+    const [copied, setCopied] = React.useState(false)
 
     const isDarkColor = chroma(background).luminance() <= 0.08
     const isLightColor = chroma(background).luminance() >= 0.65

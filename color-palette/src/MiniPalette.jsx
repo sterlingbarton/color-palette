@@ -1,6 +1,6 @@
 import React from 'react'
-import './MiniPalette.css'
 import DeleteIcon from '@mui/icons-material/Delete';
+import './styles/MiniPalette.css'
 
 function MiniPalette({palette, goToPalette, id, openDialog}) {
 

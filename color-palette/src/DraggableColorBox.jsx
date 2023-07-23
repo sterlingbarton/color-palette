@@ -1,7 +1,7 @@
 import React from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import chroma from "chroma-js";
-import './DraggableColorBox.css'
+import './styles/DraggableColorBox.css'
 
 export default function DraggableColorBox({color, name, handleRemoveColor}) {
     const isDarkColor = chroma(color).luminance() <= 0.08;
