@@ -1,12 +1,13 @@
 import React from 'react';
 import { Routes, Route, useParams, useLocation } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Palette from "./Palette"
 import SeedColors from "./SeedColors"
 import PaletteList from "./PaletteList";
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
 import { generatePalette } from "./colorHelpers"
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import Page from './Page';
 import './App.css'
 
 
@@ -48,36 +49,36 @@ export default function App() {
             index 
             path='/' 
             element={
-              <div className='page'>
+              <Page>
                 <PaletteList palettes={palettes} deletePalette={deletePalette}/>
-              </div>
+              </Page>
             }
             />
           <Route 
             exact 
             path='/palette/new' 
             element={
-              <div className='page'>
+              <Page>
                 <NewPaletteForm savePalette={savePalette} palettes={palettes}/>
-              </div>
+              </Page>
             }
             />
           <Route 
             exact 
             path='/palette/:id' 
             element={
-              <div className='page'>
+              <Page>
                 <PaletteWrapper />
-              </div>
+              </Page>
             }
             />
           <Route 
             exact 
             path='/palette/:paletteId/:colorId' 
             element={
-              <div className='page'>
+              <Page>
                 <SingleColorWrapper />
-              </div>
+              </Page>
             }
             />
         </Routes>
