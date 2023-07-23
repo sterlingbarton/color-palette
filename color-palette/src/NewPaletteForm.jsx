@@ -12,6 +12,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import DraggableColorList from "./DraggableColorList";
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
+import SeedColors from './SeedColors';
 import './NewPaletteForm.css'
 
 export const drawerWidth = 400;
@@ -52,7 +53,7 @@ export default function NewPaletteForm({savePalette, palettes}) {
     const navigate = useNavigate();
 
     const [open, setOpen] = React.useState(false);
-    const [colors, setColors] = React.useState(palettes[0].colors)
+    const [colors, setColors] = React.useState(SeedColors[0].colors)
     const [newPaletteName, setNewPaletteName] = React.useState("");
 
 

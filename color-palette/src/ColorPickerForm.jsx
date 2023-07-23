@@ -34,12 +34,13 @@ export default function ColorPickerForm({paletteIsFull, colors, setColors}) {
             name: newColorName
         }
         setColors([...colors, newColor])
+        setNewColorName('')
     }
 
   return (
     <div>
          <ChromePicker className='picker' color={currentColor} onChangeComplete={updateCurrentColor}/>
-                <ValidatorForm onSubmit={addNewColor}>
+                <ValidatorForm onSubmit={addNewColor} instantValidate={false}>
                     <TextValidator 
                         label='New Color Name'
                         variant='filled'

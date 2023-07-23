@@ -29,6 +29,10 @@
     justify-content: space-between;
 }
 
+.box-content .light-text{
+    color: rgba(255, 255, 255, 0.8);
+}
+
 @media (max-width: 1200px){
     .color-box-root{
         width: 25%;
