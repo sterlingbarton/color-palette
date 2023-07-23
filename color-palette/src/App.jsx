@@ -81,6 +81,17 @@ export default function App() {
               </Page>
             }
             />
+            <Route
+              path="*"
+              element={
+                  <Page>
+                      <PaletteList
+                          palettes={palettes}
+                          deletePalette={deletePalette}
+                      />
+                  </Page>
+              }
+            />
         </Routes>
       </CSSTransition>
     </TransitionGroup>
