@@ -1,9 +1,12 @@
 .palette-list-root{
-    background-color: blue;
+    /* background by SVGBackgrounds.com */
+    background-color: #394bad;
+    background-image: url('bg.svg');
     height: 100vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    overflow: scroll;
 }
 
 .palette-list-title{
