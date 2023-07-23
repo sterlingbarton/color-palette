@@ -23,7 +23,7 @@ export default function Palette({palette}) {
 
   return (
     <div className="palette">
-        <Navbar level={level} changeLevel={changeLevel} format={format} setFormat={setFormat} changeFormat={changeFormat} showSlider={true}/>
+        <Navbar level={level} changeLevel={changeLevel} format={format} changeFormat={changeFormat} showSlider={true}/>
         <div className="palette-colors">
             {colorBoxes}
         </div>

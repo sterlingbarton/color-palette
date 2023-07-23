@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography';
@@ -51,7 +51,6 @@ export default function NewPaletteForm({savePalette, palettes}) {
 
     const navigate = useNavigate();
 
-    const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const [colors, setColors] = React.useState(palettes[0].colors)
     const [newPaletteName, setNewPaletteName] = React.useState("");
@@ -66,7 +65,6 @@ export default function NewPaletteForm({savePalette, palettes}) {
     };
 
     function handleSavePalette(newPalette){
-        // e.preventDefault()
         newPalette.id = newPaletteName.toLowerCase().replace(/ /g, "-")
         newPalette.colors = colors
         savePalette(newPalette);

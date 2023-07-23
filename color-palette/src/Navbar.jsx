@@ -12,7 +12,7 @@ import 'rc-slider/assets/index.css';
 import './Navbar.css'
 
 
-export default function Navbar({level, changeLevel, format, setFormat, changeFormat, showSlider}) {
+export default function Navbar({level, changeLevel, format, changeFormat, showSlider}) {
 
     const [open, setOpen] = useState(false);
 

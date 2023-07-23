@@ -30,7 +30,14 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-export default function PaletteFormNav({open, palettes, handleDrawerOpen, handleSavePalette, newPaletteName, setNewPaletteName}) {
+export default function PaletteFormNav({
+    open, 
+    palettes, 
+    handleDrawerOpen, 
+    handleSavePalette, 
+    newPaletteName, 
+    setNewPaletteName
+}) {
     const navigate = useNavigate();
 
     const [formShowing, setFormShowing] = React.useState(false);

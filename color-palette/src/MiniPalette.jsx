@@ -1,13 +1,8 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import './MiniPalette.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function MiniPalette({
-    palette, 
-    goToPalette, 
-    id, 
-    openDialog
-}) {
+function MiniPalette({palette, goToPalette, id, openDialog}) {
 
     const miniColors = palette.colors.map((color) => {
         return <div className='mini-palette-miniColor' style={{ backgroundColor: color.color }} key={color.name}/>
@@ -17,7 +12,6 @@ function MiniPalette({
         e.stopPropagation()
         openDialog(id)
     }
-    console.log(palette.paletteName)
 
   return (
     <div className='mini-palette-root' onClick={() => goToPalette(id)}>

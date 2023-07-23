@@ -17,9 +17,7 @@ export default function PaletteMetaForm({
     handleSavePalette,
     hideForm
 }) {
-
     const [type, setType] = React.useState('form')
-
 
     React.useEffect(() => {
         ValidatorForm.addValidationRule("isPaletteNameUnique", (value) => {
